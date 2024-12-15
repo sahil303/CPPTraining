@@ -2,12 +2,15 @@
 //
 
 #include <iostream>
+#include "IfElse.h"
 using namespace std;
+
 
 int main()
 {
 #pragma region Basics I/O
 
+    cout << "~~~~~~~~~~~~~Basics I/O~~~~~~~~~~~~~~~~~" << endl;
     // Basics input and output code
     int a, b;
 
@@ -19,10 +22,14 @@ int main()
 
     cout << "The sum of two numbers = " << a + b << endl;
 
+    cout << "~~~~~~~~~~~~~ End of Basics I/O~~~~~~~~~~~~~~~~~" << endl;
+
 #pragma endregion
 
 
 #pragma region Type Casting
+
+    cout << endl << "~~~~~~~~~~~~~Type Casting~~~~~~~~~~~~~~~~~" << endl;
 
     int i = 10;
     char c = 'b';
@@ -37,8 +44,12 @@ int main()
 
     cout << c << endl; // Random charcter
 
+    cout << "~~~~~~~~~~~~~End of Type Casting~~~~~~~~~~~~~~~~~" << endl;
+
 #pragma endregion
 
+
+    RunIfElseProgram();
 
     return 0;
 
