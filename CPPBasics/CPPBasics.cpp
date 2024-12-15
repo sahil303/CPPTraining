@@ -8,11 +8,11 @@ using namespace std;
 
 int main()
 {
-	RunBasicIOProgram();
+	//RunBasicIOProgram();
 
-	RunTypeCastingProgram();
+	//RunTypeCastingProgram();
 
-    RunIfElseProgram();
+ //   RunIfElseProgram();
 
 	RunLoopPrograms();
 
@@ -156,6 +156,51 @@ void RunLoopPrograms()
 
 void RunForLoopProgram()
 {
+	cout << "~~~~~~ FOR LOOP ~~~~~~~~~~~~~~" << endl;
+
+	// 1. Print 1 to 5 Numbers 
+	cout << "~~~~~~ Print 1 to 5 Numbers ~~~~~~~~~~~~~~" << endl;
+
+	for (int i = 1; i <= 5; i++)
+	{
+		cout << i << endl;
+	}
+
+	// 2. Print square of n numbers
+	cout << "~~~~~~ Print square of n numbers ~~~~~~~~~~~~~~" << endl;
+
+	int num;
+	cout << "Enter n: ";
+	cin >> num;
+
+	for (int i = 1; i <= num; i++)
+	{
+		cout << i << " : " << i * i << endl;
+	}
+
+	// 3.Print Even numbers from 2 to n
+	cout << "~~~~~~ Print Even numbers from 2 to n~~~~~~~~~~~~~~" << endl;
+
+	int numOfEven;
+	cout << "Enter n: ";
+	cin >> numOfEven;
+
+	for (int i = 2; i <= numOfEven; i+=2)
+	{
+		cout << i << endl;
+	}
+
+	// 4.Print odd numbers from 1 to n
+	cout << "~~~~~~ Print odd numbers from 1 to n ~~~~~~~~~~~~~~" << endl;
+
+	int numOfOdd;
+	cout << "Enter n: ";
+	cin >> numOfOdd;
+
+	for (int i = 1; i <= numOfOdd; i += 2)
+	{
+		cout << i << endl;
+	}
 }
 
 void RunDoWhileLoopProgram()
