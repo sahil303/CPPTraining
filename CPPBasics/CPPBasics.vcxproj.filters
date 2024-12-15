@@ -18,12 +18,9 @@
     <ClCompile Include="CPPBasics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IfElse.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IfElse.h">
+    <ClInclude Include="CPPBasics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
