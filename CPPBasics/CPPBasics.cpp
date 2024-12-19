@@ -156,6 +156,8 @@ void RunLoopPrograms()
 
 void RunForLoopProgram()
 {
+	int n, num;
+
 	cout << "~~~~~~ FOR LOOP ~~~~~~~~~~~~~~" << endl;
 
 	// 1. Print 1 to 5 Numbers 
@@ -168,8 +170,6 @@ void RunForLoopProgram()
 
 	// 2. Print square of n numbers
 	cout << "~~~~~~ Print square of n numbers ~~~~~~~~~~~~~~" << endl;
-
-	int num;
 	cout << "Enter n: ";
 	cin >> num;
 
@@ -201,6 +201,87 @@ void RunForLoopProgram()
 	{
 		cout << i << endl;
 	}
+
+	//5.Print a to z alphabets
+	cout << "~~~~~~ Print a to z alphabets ~~~~~~~~~~~~~~" << endl;
+
+	for (char name = 'a'; name <= 'z'; name++)
+	{
+		cout << name << " ";
+	}
+
+	cout << endl;
+
+	// 6.Print numbers in Reverse order
+	cout << "~~~~~~ Print numbers in Reverse order ~~~~~~~~~~~~~~" << endl;
+	cout << "Enter start number :";
+	cin >> n;
+	for (int i = n; i >= 1; i--)
+	{
+		cout << i << " ";
+	}
+	cout << endl;
+
+	// 7.Print numbers 1 to 100 with difference of 3
+	cout << "~~~~~~ Print numbers 1 to n with difference of 3~~~~~~~~~~~~~~" << endl;
+	cout << "Enter number :";
+	cin >> n;
+	for (int i = 1; i <= n; i+=3)
+	{
+		cout << i << " ";
+	}
+	cout << endl;
+
+	//8.Print multiplication table
+	cout << "~~~~~~ Print multiplication table~~~~~~~~~~~~~~" << endl;
+	cout << "Enter number :";
+	cin >> n;
+	for (int i = 1; i <= 10; i ++)
+	{
+		cout << n << " x " << i << " = " << n * i << endl;
+	}
+	cout << endl;
+
+	// 9.Calculate power of a number
+	cout << "~~~~~~ Calculate power of a number ~~~~~~~~~~~~~~" << endl;
+	cout << "Enter the number :";
+	cin >> n;
+	int pow;
+	cout << "Enter the power :";
+	cin >> pow;
+	int number = n;
+	for (int i = 1; i < pow; i ++)
+	{
+		number = number * n;
+	}
+	cout << "Answer = " << number;
+	cout << endl;
+
+	// 10.Sum of n natural nos
+	cout << "~~~~~~ Sum of n natural nos ~~~~~~~~~~~~~~" << endl;
+	cout << "Enter a number :";
+	cin >> n;
+	
+	int sum = 0;
+	for (int i = 1; i <= n; i ++)
+	{
+		sum = sum + i;
+	}
+	cout << "Answer = " << sum;
+	cout << endl;
+
+	// 11.Sum of sqaure n natural nos
+	cout << "~~~~~~ Sum of sqaures n natural nos ~~~~~~~~~~~~~~" << endl;
+	cout << "Enter a number :";
+	cin >> n;
+
+	int sqsum = 0;
+	for (int i = 1; i <= n; i++)
+	{
+		sqsum = sqsum + (i*i);
+	}
+	cout << "Answer = " << sqsum;
+	cout << endl;
 }
 
 void RunDoWhileLoopProgram()
