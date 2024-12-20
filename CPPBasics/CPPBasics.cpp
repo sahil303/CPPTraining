@@ -282,6 +282,80 @@ void RunForLoopProgram()
 	}
 	cout << "Answer = " << sqsum;
 	cout << endl;
+
+	//12.Factorial of a number
+	cout << "~~~~~~ Factorial of a number ~~~~~~~~~~~~~~" << endl;
+	cout << "Enter a number :";
+	cin >> n;
+
+	cout << "Answer = " << Factorial(n);
+	cout << endl;
+
+	//12.Prime number
+	cout << "~~~~~~ Prime number ~~~~~~~~~~~~~~" << endl;
+	cout << "Enter a number :";
+	cin >> n;
+
+	if (isPrime(n)) cout << "Prime";
+	else cout << "Not Prime \n";
+	cout << endl;
+
+	//13. Fibonacci Number
+	cout << "~~~~~~ Fibonacci number ~~~~~~~~~~~~~~" << endl;
+	cout << "Enter a number :";
+	cin >> n;
+
+	cout << FibonacciNumber(n);
+	cout << endl;
+}
+
+unsigned long long Factorial(int n)
+{
+	unsigned long long fact = 1;
+	for (int i = 1; i <= n; i++)
+	{
+		fact = fact * i;
+	}
+
+	return fact;
+}
+
+bool isPrime(int n)
+{
+	bool isPrime = true;
+
+	for (int i = 2; i < n; i++)
+	{
+		if (n % i == 0)
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
+int FibonacciNumber(int n)
+{
+	if (n == 0 || n == 1)
+		return 0;
+	if (n == 2)
+		return 1;
+
+	int last = 0, prev = 1;
+
+	cout << last << " " << prev << " ";
+
+	int curr = last + prev;
+	for (int index = 3; index < n; index++)
+	{
+		cout  << curr << " ";
+		last = prev;
+		prev = curr;
+		curr = last + prev;
+	}
+
+	return curr;
 }
 
 void RunDoWhileLoopProgram()
