@@ -21,9 +21,15 @@
     <ClCompile Include="BasicPatterns.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TrianglePatterns.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicPatterns.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TrianglePatterns.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

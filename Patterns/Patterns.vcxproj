@@ -129,9 +129,11 @@
   <ItemGroup>
     <ClCompile Include="BasicPatterns.cpp" />
     <ClCompile Include="Patterns.cpp" />
+    <ClCompile Include="TrianglePatterns.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicPatterns.h" />
+    <ClInclude Include="TrianglePatterns.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
