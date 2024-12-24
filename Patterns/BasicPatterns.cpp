@@ -3,7 +3,7 @@
 using namespace std;
 
 //* * * * *//
-void PrintStars(int n)
+void Basic_PrintSimpleStarsInStraightLine(int n)
 {
 	for (int i = 0; i < n; i++)
 		cout << "*" << " ";
@@ -17,7 +17,7 @@ Output -
 	* * * * *
 	* * * * *
 */
-void PrintFilledSqaure(int rows, int cols)
+void Basic_PrintFilledSqaure(int rows, int cols)
 {
 	// 1. start from 1st row
 	// 2. check if less than required rows
@@ -43,7 +43,7 @@ Output -
 	10 10 10 10 10
 	10 10 10 10 10
 */
-void Print10Pattern(int rows, int cols)
+void Basic_Print10Pattern(int rows, int cols)
 {
 	for (int i = 0; i < rows; i++)
 	{
@@ -63,7 +63,7 @@ Output -
 	4 4 4 4 4 4
 	5 5 5 5 5 5
 */
-void PrintNumberPattern1(int rows, int cols)
+void Basic_PrintNumberPattern1(int rows, int cols)
 {
 	for (int i = 1; i <= rows; i++)
 	{
@@ -83,7 +83,7 @@ Output -
 	4 4 4 4 4 4
 	5 5 5 5 5 5
 */
-void PrintNumberPattern2(int rows, int cols)
+void Basic_PrintNumberPattern2(int rows, int cols)
 {
 	for (int i = 1; i <= rows; i++)
 	{
@@ -103,7 +103,7 @@ Output -
 16 17 18 19 20
 21 22 23 24 25
 */
-void PrintNumberPattern3(int rows, int cols)
+void Basic_PrintNumberPattern3(int rows, int cols)
 {
 	// Approach 1
 	cout << "\n\n First Approach using count \n\n";
@@ -140,7 +140,7 @@ Output -
 	5 4 3 2 1
 	5 4 3 2 1
 */
-void PrintDescendingNumPattern(int rows, int cols)
+void Basic_PrintDescendingNumPattern(int rows, int cols)
 {
 	for (int i = 1; i <= rows; i++)
 	{
@@ -160,7 +160,7 @@ Output -
 1 4 9 16 25
 1 4 9 16 25
 */
-void PrintAscendingNumSquarePattern(int rows, int cols)
+void Basic_PrintAscendingNumSquarePattern(int rows, int cols)
 {
 	for (int i = 1; i <= rows; i++)
 	{
@@ -181,7 +181,7 @@ c c c c c
 d d d d d
 e e e e e
 */
-void PrintAlphabets1(char startChar, char endChar)
+void Basic_PrintAlphabets1(char startChar, char endChar)
 {
 	// Approach 1
 
@@ -217,7 +217,7 @@ a b c d e
 a b c d e
 a b c d e
 */
-void PrintAlphabets2(char startChar, char endChar)
+void Basic_PrintAlphabets2(char startChar, char endChar)
 {
 
 	// Approach 1
