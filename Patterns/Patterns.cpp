@@ -5,11 +5,16 @@
 #include "BasicPatterns.h"
 #include "TrianglePatterns.h"
 #include "AdvanceTrianglePatterns.h"
+#include "Pyramid.h"
 using namespace std;
 
 void BasicPatterns();
 void TriangleSimplePatterns();
 void AdvancedTrianglePatterns();
+void PyramidPatterns();
+void HollowDiamondPattern(int n);
+void ButterflyPattern(int n);
+void DiamondPattern(int n);
 
 int main()
 {
@@ -27,7 +32,11 @@ int main()
 			cout << "1. Basic Patterns\n";
 			cout << "2. Triangle Simple Patterns\n";
 			cout << "3. Advanced Triangle Patterns\n";
-			cout << "4. Exit\n";
+			cout << "4. Pyramid Patterns\n";
+			cout << "5. Hollow Diamond Pattern\n";
+			cout << "6. Butterfly Pattern\n";
+			cout << "7. Diamond Pattern\n";
+			cout << "8. Exit\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -63,6 +72,37 @@ int main()
 				break;
 			}
 			case 4:
+			{
+				PyramidPatterns();
+				break;
+			}
+			case 5:
+			{
+				int rows;
+				cout << "Enter number of rows in hollow diamond : ";
+				cin >> rows;
+				HollowDiamondPattern(rows);
+				break;
+			}
+			case 6:
+			{
+				int rows;
+				cout << "Enter number of rows in butterfly : ";
+				cin >> rows;
+				ButterflyPattern(rows);
+				break;
+				break;
+			}
+			case 7:
+			{
+				int rows;
+				cout << "Enter number of rows in Diamond : ";
+				cin >> rows;
+				DiamondPattern(rows);
+				break;
+				break;
+			}
+			case 8:
 				bContinue = false;
 				break;
 			default:
@@ -420,4 +460,274 @@ void AdvancedTrianglePatterns()
 		cin >> c;
 
 	} while (c == 'y' || c == 'Y');
+}
+
+void PyramidPatterns()
+{
+	char c = 'y';
+	int option = 0, rows, cols;
+	do
+	{
+		bool bValidInput = false;
+
+		while (!bValidInput)
+		{
+			cout << "\n\n\n~~~~~~~~ PYRAMID PATTERNS ~~~~~~~~~\n\n\n";
+			cout << "Choose Options From Below:\n\n";
+			cout << "1. Print Simple Star Pyramid\n";
+			cout << "2. Print Reverse Star Pyramid\n";
+			cout << "3. Print Pyramid Number Pattern - 1\n";
+			cout << "3. Print Number Triangle Pattern - 2\n";
+			cout << "4. Print Number Triangle Pattern - 3\n";
+			cout << "5. Print Alphabets pattern\n";
+			cout << "\n--------------\n";
+			cout << "Choice : ";
+			cin >> option;
+
+			if (cin.fail()) {
+				cout << "Invalid input! Expected an integer."
+					<< endl;
+				// Clear the failbit and ignore the remaining
+				// input
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
+			else {
+				bValidInput = true;
+			}
+		}
+
+		switch (option)
+		{
+		case 1:
+		{
+			cout << "Enter number of rows in pyramid : ";
+			cin >> rows;
+			PYRAMID_Stars(rows);
+			break;
+		}
+		case 2:
+		{
+			cout << "Enter Number of rows in pyramid : ";
+			cin >> rows;
+			PYRAMID_ReverseStars(rows);
+			break;
+		}
+		case 3:
+		{
+			cout << "Enter Number of rows in pyramid : ";
+			cin >> rows;
+			PYRAMID_NumberPattern1(rows);
+			break;
+		}
+		case 4:
+		{
+			cout << "Enter Number of rows in pyramid : ";
+			cin >> rows;
+			AdvTriangle_NumberPattern3(rows);
+			break;
+		}
+		case 5:
+		{
+			cout << "Enter Number of rows in pyramid : ";
+			cin >> rows;
+			AdvTriangle_AlphabetPattern(rows);
+			break;
+		}
+		default:
+		{
+			cout << "Invalid option!!!\n";
+			break;
+		}
+		}
+
+		cout << "\nDo you want to continue (Y/N)?\n";
+		cin >> c;
+
+	} while (c == 'y' || c == 'Y');
+}
+
+
+/*
+Output -
+* * * * * * * * * *
+* * * *     * * * *
+* * *         * * *
+* *             * *
+*                 *
+*                 *
+* *             * *
+* * *         * * *
+* * * *     * * * *
+* * * * * * * * * *
+*/
+void HollowDiamondPattern(int n)
+{
+	// Upper portion 
+	for (int row = n; row > 0; row--)
+	{
+		// print stars
+		for (int stars = 0; stars < row; stars++)
+		{
+			cout << "* ";
+		}
+
+		// print spaces
+		for (int spaces = 0; spaces < 2 * (n - row); spaces++)
+		{
+			cout << "  ";
+		}
+
+		// print stars
+		for (int stars = 0; stars < row; stars++)
+		{
+			cout << "* ";
+		}
+		cout << "\n";
+	}
+
+	// Lower portion
+	for (int row = 1; row <= n; row++)
+	{
+		// print stars
+		for (int stars = 0; stars < row; stars++)
+		{
+			cout << "* ";
+		}
+
+		// print spaces
+		for (int spaces = 2 * (n - row); spaces > 0; spaces--)
+		{
+			cout << "  ";
+		}
+
+		// print stars
+		for (int stars = 0; stars < row; stars++)
+		{
+			cout << "* ";
+		}
+		cout << "\n";
+	}
+}
+
+/*
+Output -
+*                     *
+* *                 * *
+* * *             * * *
+* * * *         * * * *
+* * * * *     * * * * *
+* * * * * * * * * * * *
+* * * * *     * * * * *
+* * * *         * * * *
+* * *             * * *
+* *                 * *
+*                     *
+*/
+void ButterflyPattern(int n)
+{
+	// upper portion
+	for (int row = 1; row <= n; row++)
+	{
+		//print stars
+		for (int stars = 1; stars <= row; stars++)
+		{
+			cout << "* ";
+		}
+
+		//print spaces
+		for (int spaces = 1; spaces <= (2 * (n - row)); spaces++)
+		{
+			cout << "  ";
+		}
+
+		//print stars
+		for (int stars = 1; stars <= row; stars++)
+		{
+			cout << "* ";
+		}
+
+		cout << "\n";
+	}
+
+	// lower portion
+	for (int row = n - 1; row >= 1; row--)
+	{
+		//print stars
+		for (int stars = 1; stars <= row; stars++)
+		{
+			cout << "* ";
+		}
+
+		//print spaces
+		for (int spaces = 1; spaces <= (2 *(n - row)); spaces++)
+		{
+			cout << "  ";
+		}
+
+		//print stars
+		for (int stars = 1; stars <= row; stars++)
+		{
+			cout << "* ";
+		}
+
+		cout << "\n";
+	}
+}
+
+/*
+Output -
+	   *
+	  * *
+	 * * *
+	* * * *
+   * * * * *
+  * * * * * *
+ * * * * * * *
+* * * * * * * *
+* * * * * * * *
+ * * * * * * *
+  * * * * * *
+   * * * * *
+	* * * *
+	 * * *
+	  * *
+	   *
+*/
+void DiamondPattern(int n)
+{
+	// upper portion
+	for (int row = 1; row <= n; row++)
+	{
+		//print spaces
+		for (int spaces = 1; spaces <= (n - row); spaces++)
+		{
+			cout << " ";
+		}
+
+		//print stars
+		for (int stars = 1; stars <= row; stars++)
+		{
+			cout << "* ";
+		}
+
+		cout << "\n";
+	}
+	// upper portion
+	for (int row = n; row >= 1; row--)
+	{
+		//print spaces
+		for (int spaces = 1; spaces <= (n - row); spaces++)
+		{
+			cout << " ";
+		}
+
+		//print stars
+		for (int stars = 1; stars <= row; stars++)
+		{
+			cout << "* ";
+		}
+
+		cout << "\n";
+	}
 }
