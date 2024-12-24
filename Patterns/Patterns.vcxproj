@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdvanceTrianglePatterns.cpp" />
     <ClCompile Include="BasicPatterns.cpp" />
     <ClCompile Include="Patterns.cpp" />
     <ClCompile Include="TrianglePatterns.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdvanceTrianglePatterns.h" />
     <ClInclude Include="BasicPatterns.h" />
     <ClInclude Include="TrianglePatterns.h" />
   </ItemGroup>

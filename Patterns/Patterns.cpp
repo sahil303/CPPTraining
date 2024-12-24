@@ -4,11 +4,12 @@
 #include <iostream>
 #include "BasicPatterns.h"
 #include "TrianglePatterns.h"
-
+#include "AdvanceTrianglePatterns.h"
 using namespace std;
 
 void BasicPatterns();
 void TriangleSimplePatterns();
+void AdvancedTrianglePatterns();
 
 int main()
 {
@@ -25,7 +26,8 @@ int main()
 			cout << "Choose Options From Below:\n\n";
 			cout << "1. Basic Patterns\n";
 			cout << "2. Triangle Simple Patterns\n";
-			cout << "3. Exit\n";
+			cout << "3. Advanced Triangle Patterns\n";
+			cout << "4. Exit\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -56,6 +58,11 @@ int main()
 				break;
 			}
 			case 3:
+			{
+				AdvancedTrianglePatterns();
+				break;
+			}
+			case 4:
 				bContinue = false;
 				break;
 			default:
@@ -114,14 +121,14 @@ void BasicPatterns()
 			int n;
 			cout << "Enter Number of Stars to Print : ";
 			cin >> n;
-			PrintStars(n);
+			Basic_PrintSimpleStarsInStraightLine(n);
 			break;
 		}
 		case 2:
 		{
 			cout << "Enter Number of rows and cols : ";
 			cin >> rows >> cols;
-			PrintFilledSqaure(rows, cols);
+			Basic_PrintFilledSqaure(rows, cols);
 			break;
 		}
 		case 3:
@@ -129,7 +136,7 @@ void BasicPatterns()
 			int rows, cols;
 			cout << "Enter Number of rows and cols : ";
 			cin >> rows >> cols;
-			Print10Pattern(rows, cols);
+			Basic_Print10Pattern(rows, cols);
 			break;
 		}
 		case 4:
@@ -137,7 +144,7 @@ void BasicPatterns()
 			cout << "Enter Number of rows and cols : ";
 			cin >> rows >> cols;
 			cout << endl;
-			PrintNumberPattern1(rows, cols);
+			Basic_PrintNumberPattern1(rows, cols);
 			break;
 		}
 		case 5:
@@ -145,7 +152,7 @@ void BasicPatterns()
 			cout << "Enter Number of rows and cols : ";
 			cin >> rows >> cols;
 			cout << endl;
-			PrintNumberPattern2(rows, cols);
+			Basic_PrintNumberPattern2(rows, cols);
 			break;
 		}
 		case 6:
@@ -153,7 +160,7 @@ void BasicPatterns()
 			cout << "Enter Number of rows and cols : ";
 			cin >> rows >> cols;
 			cout << endl;
-			PrintNumberPattern3(rows, cols);
+			Basic_PrintNumberPattern3(rows, cols);
 			break;
 		}
 		case 7:
@@ -161,7 +168,7 @@ void BasicPatterns()
 			cout << "Enter Number of rows and cols : ";
 			cin >> rows >> cols;
 			cout << endl;
-			PrintDescendingNumPattern(rows, cols);
+			Basic_PrintDescendingNumPattern(rows, cols);
 			break;
 		}
 		case 8:
@@ -169,7 +176,7 @@ void BasicPatterns()
 			cout << "Enter Number of rows and cols : ";
 			cin >> rows >> cols;
 			cout << endl;
-			PrintAscendingNumSquarePattern(rows, cols);
+			Basic_PrintAscendingNumSquarePattern(rows, cols);
 			break;
 		}
 
@@ -179,7 +186,7 @@ void BasicPatterns()
 			cout << "Enter start and end aplhabets : ";
 			cin >> start >> end;
 			cout << endl;
-			PrintAlphabets1(start, end);
+			Basic_PrintAlphabets1(start, end);
 			break;
 		}
 		case 10:
@@ -188,7 +195,7 @@ void BasicPatterns()
 			cout << "Enter start and end aplhabets : ";
 			cin >> start >> end;
 			cout << endl;
-			PrintAlphabets2(start, end);
+			Basic_PrintAlphabets2(start, end);
 			break;
 		}
 		default:
@@ -249,56 +256,56 @@ void TriangleSimplePatterns()
 			{
 				cout << "Enter number of rows in triangle : ";
 				cin >> rows;
-				PrintStarRightHandTriangle(rows);
+				BasicTriangle_PrintStarRightHandTriangle(rows);
 				break;
 			}
 			case 2:
 			{
 				cout << "Enter Number of rows in triangle : ";
 				cin >> rows;
-				PrintStarReverseTriangle(rows);
+				BasicTriangle_PrintStarReverseTriangle(rows);
 				break;
 			}
 			case 3:
 			{
 				cout << "Enter Number of rows in triangle : ";
 				cin >> rows;
-				PrintNumberTriangle1(rows);
+				BasicTriangle_PrintNumberTriangle1(rows);
 				break;
 			}
 			case 4:
 			{
 				cout << "Enter Number of rows in triangle : ";
 				cin >> rows;
-				PrintNumberTriangle2(rows);
+				BasicTriangle_PrintNumberTriangle2(rows);
 				break;
 			}
 			case 5:
 			{
 				cout << "Enter Number of rows in triangle : ";
 				cin >> rows;
-				PrintNumberTriangle3(rows);
+				BasicTriangle_PrintNumberTriangle3(rows);
 				break;
 			}
 			case 6:
 			{
 				cout << "Enter Number of rows in triangle : ";
 				cin >> rows;
-				PrintReverseNumberTriangle1(rows);
+				BasicTriangle_PrintReverseNumberTriangle1(rows);
 				break;
 			}
 			case 7:
 			{
 				cout << "Enter Number of rows in triangle : ";
 				cin >> rows;
-				PrintReverseNumberTriangle2(rows);
+				BasicTriangle_PrintReverseNumberTriangle2(rows);
 				break;
 			}
 			case 8:
 			{
 				cout << "Enter Number of rows in triangle : ";
 				cin >> rows;
-				PrintReverseNumberReverseTriangle(rows);
+				BasicTriangle_PrintReverseNumberReverseTriangle(rows);
 				break;
 			}
 
@@ -307,7 +314,7 @@ void TriangleSimplePatterns()
 				char start, end;
 				cout << "Enter start and end alphabets : ";
 				cin >> start >> end;
-				PrintAlphabetsTriangle1(start, end);
+				BasicTriangle_PrintAlphabetsTriangle1(start, end);
 				break;
 			}
 			case 10:
@@ -315,7 +322,7 @@ void TriangleSimplePatterns()
 				char start, end;
 				cout << "Enter start and end alphabets : ";
 				cin >> start >> end;
-				PrintAlphabetsTriangle2(start, end);
+				BasicTriangle_PrintAlphabetsTriangle2(start, end);
 				break;
 			}
 			default:
@@ -323,6 +330,90 @@ void TriangleSimplePatterns()
 				cout << "Invalid option!!!\n";
 				break;
 			}
+		}
+
+		cout << "\nDo you want to continue (Y/N)?\n";
+		cin >> c;
+
+	} while (c == 'y' || c == 'Y');
+}
+
+void AdvancedTrianglePatterns()
+{
+	char c = 'y';
+	int option = 0, rows, cols;
+	do
+	{
+		bool bValidInput = false;
+
+		while (!bValidInput)
+		{
+			cout << "\n\n\n~~~~~~~~ ADVANCED TRIANGLE PATTERNS ~~~~~~~~~\n\n\n";
+			cout << "Choose Options From Below:\n\n";
+			cout << "1. Print Stars Left Handed Triangle\n";
+			cout << "2. Print Number Triangle Pattern - 1\n";
+			cout << "3. Print Number Triangle Pattern - 2\n";
+			cout << "4. Print Number Triangle Pattern - 3\n";
+			cout << "5. Print Alphabets pattern\n";
+			cout << "\n--------------\n";
+			cout << "Choice : ";
+			cin >> option;
+
+			if (cin.fail()) {
+				cout << "Invalid input! Expected an integer."
+					<< endl;
+				// Clear the failbit and ignore the remaining
+				// input
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
+			else {
+				bValidInput = true;
+			}
+		}
+
+		switch (option)
+		{
+		case 1:
+		{
+			cout << "Enter number of rows in triangle : ";
+			cin >> rows;
+			AdvTriangle_StarPattern(rows);
+			break;
+		}
+		case 2:
+		{
+			cout << "Enter Number of rows in triangle : ";
+			cin >> rows;
+			AdvTriangle_NumberPattern1(rows);
+			break;
+		}
+		case 3:
+		{
+			cout << "Enter Number of rows in triangle : ";
+			cin >> rows;
+			AdvTriangle_NumberPattern2(rows);
+			break;
+		}
+		case 4:
+		{
+			cout << "Enter Number of rows in triangle : ";
+			cin >> rows;
+			AdvTriangle_NumberPattern3(rows);
+			break;
+		}
+		case 5:
+		{
+			cout << "Enter Number of rows in triangle : ";
+			cin >> rows;
+			AdvTriangle_AlphabetPattern(rows);
+			break;
+		}	
+		default:
+		{
+			cout << "Invalid option!!!\n";
+			break;
+		}
 		}
 
 		cout << "\nDo you want to continue (Y/N)?\n";

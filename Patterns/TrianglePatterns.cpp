@@ -12,7 +12,7 @@ Output -
 * * * * *
 */
 // columns dependent on row number
-void PrintStarRightHandTriangle(int rows)
+void BasicTriangle_PrintStarRightHandTriangle(int rows)
 {
 	for (int row = 0; row < rows; row++)
 	{
@@ -31,7 +31,7 @@ Output -
 * *
 *
 */
-void PrintStarReverseTriangle(int rows)
+void BasicTriangle_PrintStarReverseTriangle(int rows)
 {
 	// Approach 1
 	cout << "\nApproach 1 using direct relation\n";
@@ -66,7 +66,7 @@ Output -
 1 2 3 4
 1 2 3 4 5
 */
-void PrintNumberTriangle1(int rows)
+void BasicTriangle_PrintNumberTriangle1(int rows)
 {
 	for (int i = 1; i <= rows; i++)
 	{
@@ -86,7 +86,7 @@ Output -
 4 4 4 4
 5 5 5 5 5
 */
-void PrintNumberTriangle2(int rows)
+void BasicTriangle_PrintNumberTriangle2(int rows)
 {
 	for (int i = 1; i <= rows; i++)
 	{
@@ -106,7 +106,7 @@ Output -
 1 2
 1
 */
-void PrintNumberTriangle3(int rows)
+void BasicTriangle_PrintNumberTriangle3(int rows)
 {
 	// Approach 1
 	cout << "\nApproach 1 using direct relation\n";
@@ -140,7 +140,7 @@ Output -
 4 3 2 1
 5 4 3 2 1
 */
-void PrintReverseNumberTriangle1(int rows)
+void BasicTriangle_PrintReverseNumberTriangle1(int rows)
 {
 	for (int row = 1; row <= rows; row++)
 	{
@@ -171,7 +171,7 @@ Output -
 5 4 3 2
 5 4 3 2 1
 */
-void PrintReverseNumberTriangle2(int rows)
+void BasicTriangle_PrintReverseNumberTriangle2(int rows)
 {
 	// Approach 1
 	cout << "\nApproach 1 using direct relation\n";
@@ -206,7 +206,7 @@ Output -
 5 4
 5
 */
-void PrintReverseNumberReverseTriangle(int rows)
+void BasicTriangle_PrintReverseNumberReverseTriangle(int rows)
 {
 
 	for (int row = rows; row > 0; row--)
@@ -227,7 +227,7 @@ c c c
 d d d d
 e e e e e
 */
-void PrintAlphabetsTriangle1(char start, char end)
+void BasicTriangle_PrintAlphabetsTriangle1(char start, char end)
 {
 	for (char i = start; i <= end; i++)
 	{
@@ -260,7 +260,7 @@ a b c
 a b c d
 a b c d e
 */
-void PrintAlphabetsTriangle2(char start, char end)
+void BasicTriangle_PrintAlphabetsTriangle2(char start, char end)
 {
 	for (char i = start; i <= end; i++)
 	{

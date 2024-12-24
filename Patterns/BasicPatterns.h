@@ -1,12 +1,12 @@
 #pragma once
 
-void PrintStars(int n);
-void PrintFilledSqaure(int row, int cols);
-void Print10Pattern(int rows, int cols);
-void PrintNumberPattern1(int rows, int cols);
-void PrintNumberPattern2(int rows, int cols);
-void PrintNumberPattern3(int rows, int cols);
-void PrintDescendingNumPattern(int rows, int cols);
-void PrintAscendingNumSquarePattern(int rows, int cols);
-void PrintAlphabets1(char startChar, char endChar);
-void PrintAlphabets2(char startChar, char endChar);
+void Basic_PrintSimpleStarsInStraightLine(int n);
+void Basic_PrintFilledSqaure(int row, int cols);
+void Basic_Print10Pattern(int rows, int cols);
+void Basic_PrintNumberPattern1(int rows, int cols);
+void Basic_PrintNumberPattern2(int rows, int cols);
+void Basic_PrintNumberPattern3(int rows, int cols);
+void Basic_PrintDescendingNumPattern(int rows, int cols);
+void Basic_PrintAscendingNumSquarePattern(int rows, int cols);
+void Basic_PrintAlphabets1(char startChar, char endChar);
+void Basic_PrintAlphabets2(char startChar, char endChar);
