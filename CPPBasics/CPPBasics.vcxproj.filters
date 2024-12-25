@@ -18,9 +18,27 @@
     <ClCompile Include="CPPBasics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="IfElsePrograms.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Loops.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ForLoopProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CPPBasics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IfElsePrograms.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Loops.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ForLoopProgram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

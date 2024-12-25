@@ -128,9 +128,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CPPBasics.cpp" />
+    <ClCompile Include="ForLoopProgram.cpp" />
+    <ClCompile Include="IfElsePrograms.cpp" />
+    <ClCompile Include="Loops.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CPPBasics.h" />
+    <ClInclude Include="ForLoopProgram.h" />
+    <ClInclude Include="Loops.h" />
+    <ClInclude Include="IfElsePrograms.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
