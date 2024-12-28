@@ -1,6 +1,7 @@
 #include "Loops.h"
 #include <iostream>
 #include "ForLoopProgram.h"
+#include "WhileLoopPrograms.h"
 using namespace std;
 
 
@@ -17,8 +18,8 @@ void RunLoopPrograms()
 			cout << "\n\n~~~~~~~~~~~~~~ LOOPS ~~~~~~~~~~~~~~\n\n";
 			cout << "Choose Options From Below:\n\n";
 			cout << "1. For Loop Programs\n";
-			cout << "2. Do While Loop Programs\n";
-			cout << "3. While Loop Programs\n";
+			cout << "2. While Loop Programs\n";
+			cout << "3. Do While Loop Programs\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -43,11 +44,11 @@ void RunLoopPrograms()
 				RunForLoopProgram();
 				break;
 			}
-			//case 2:
-			//{
-			//	RunDoWhileLoopProgram();
-			//	break;
-			//}
+			case 2:
+			{
+				RunWhileLoopProgram();
+				break;
+			}
 			//case 3:
 			//{
 			//	RunWhileLoopProgram();

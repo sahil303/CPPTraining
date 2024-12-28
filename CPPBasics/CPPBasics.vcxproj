@@ -131,12 +131,14 @@
     <ClCompile Include="ForLoopProgram.cpp" />
     <ClCompile Include="IfElsePrograms.cpp" />
     <ClCompile Include="Loops.cpp" />
+    <ClCompile Include="WhileLoopPrograms.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CPPBasics.h" />
     <ClInclude Include="ForLoopProgram.h" />
     <ClInclude Include="Loops.h" />
     <ClInclude Include="IfElsePrograms.h" />
+    <ClInclude Include="WhileLoopPrograms.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
