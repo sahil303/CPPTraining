@@ -8,6 +8,8 @@ void CheckLeapYear(int year);
 void ReverseIntegers(int num);
 void IsPowerOfTwo(int num);
 void SqrtOfNum(int num);
+void IsPalindrome(int num);
+void ComplementOfNumber(int num);
 
 int main()
 {
@@ -26,7 +28,8 @@ int main()
 			cout << "3. REVERSE INTEGERS\n";
 			cout << "4. POWER OF 2\n";
 			cout << "5. SQUARE ROOT OF A NUMBER\n";
-			cout << "6. Check Vowels\n";
+			cout << "6. PALINDROME NUMBER\n";
+			cout << "7. COMPLEMENT OF BASE 10 NUMBER\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -92,15 +95,24 @@ int main()
 			SqrtOfNum(num);
 			break;
 		}
-		/*case 6:
+		case 6:
 		{
-			char c;
-			cout << "\nEnter characters:  " << endl;
-			cin >> c;
-			cout << "\n";
-			CheckVowels(c);
+			int num;
+			cout << "\nEnter a number : ";
+			cin >> num;
+			cout << endl;
+			IsPalindrome(num);
 			break;
-		}*/
+		}
+		case 7:
+		{
+			int num;
+			cout << "\nEnter a number : ";
+			cin >> num;
+			cout << endl;
+			ComplementOfNumber(num);
+			break;
+		}
 		default:
 		{
 			cout << "Invalid option!!!\n";
@@ -222,4 +234,80 @@ void SqrtOfNum(int num)
 			break;
 		}
 	}
+}
+
+/*
+* An integer is a palindrome when it reads the same forward and backward. 
+* For example, 121 is a palindrome while 123 is not.
+*/
+void IsPalindrome(int num)
+{
+	int ans = 0, rem, givenNum = num;
+
+	// negative number is not a palindrome.
+	if (num < 0)
+	{
+		cout << givenNum << " is not a palindrome." << endl;
+		return;
+	}
+
+	if (num == 0)
+	{
+		cout << givenNum << " is a palindrome." << endl;
+		return;
+	}
+
+	// extract each digit from num by mod 10 and dividing num by 10 until it become zero.
+	// reverse all the digits by adding it to another variable.
+	while (num)
+	{
+		rem = num % 10;
+		num /= 10;
+		
+		// reverse is not possible.
+		if (ans > INT_MAX / 10)
+		{
+			cout << givenNum << " is not a palindrome." << endl;
+			return;
+		}
+
+		ans = ans * 10 + rem;
+	}
+
+	if(ans == givenNum)
+		cout << givenNum << " is a palindrome." << endl;
+	else
+		cout << givenNum << " is not a palindrome." << endl;
+}
+
+/*
+* The complement of an integer is the integer you get when you flip all the 0's to 1's and all the 1's to 0's in its 
+* binary representation.
+* For example, The integer 5 is "101" in binary and its complement is "010" which is the integer 2.
+* Given an integer n, return its complement.
+*/
+void ComplementOfNumber(int num)
+{
+	int ans = 0, rem, mul = 1;
+	int givenNum = num;
+
+	if (num == 0)
+	{
+		rem = num % 2;
+		rem = rem ^ 1;
+		ans = ans + rem * mul;
+	}
+
+	// convert the number to binary along with that do Ex-OR with each bit to perform 1's complement
+	// convert the complement bit to decimal.
+	while (num)
+	{
+		rem = num % 2;	
+		rem = rem ^ 1;
+		num /= 2;
+		ans = ans + rem * mul;
+		mul *= 2;
+	}
+
+	cout << ans << " is complement of " << givenNum << endl;
 }
