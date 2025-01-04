@@ -13,6 +13,8 @@ void ComplementOfNumber(int num);
 void ConvertToUppercase(char c);
 void FormRectangle(int a, int b, int c, int d);
 void FindTrailingZerosOfFactorial(int n);
+bool IsAmstrongNumber(int n, int digits);
+int CountDigits(int n);
 
 int main()
 {
@@ -36,6 +38,7 @@ int main()
 			cout << "8. CONVERT LOWERCASE TO UPPERCASE\n";
 			cout << "9. FIND IS IT A RECTANGLE\n";
 			cout << "10. NUMBER OF TRAILING ZEROS\n";
+			cout << "11. AMSTRONG NUMBER\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -144,6 +147,23 @@ int main()
 			cin >> n;
 			cout << endl;
 			FindTrailingZerosOfFactorial(n);
+			break;
+		}
+		case 11:
+		{
+			int num, digits = 1;
+
+			cout << "\nEnter a number : ";
+			cin >> num;
+			cout << endl;
+			
+			if (num > 9)
+				digits = CountDigits(num);
+
+			if (IsAmstrongNumber(num, digits))
+				cout << num << " is an Amstrong Number\n";
+			else
+				cout << num << " is not an Amstrong Number\n";
 			break;
 		}
 		default:
@@ -397,4 +417,37 @@ void FindTrailingZerosOfFactorial(int n)
 	}
 
 	cout << "\nNumber of trailing zeros are " << count << endl;
+}
+
+int CountDigits(int n)
+{
+	if (n < 10)
+		return 1;
+
+	int count = 0;
+
+	while (n)
+	{
+		count++;
+		n /= 10;
+	}
+
+	return count;
+}
+
+bool IsAmstrongNumber(int n, int digits)
+{
+	int ans = 0, rem, givenNo = n;
+
+	while (givenNo)
+	{
+		rem = givenNo % 10; // extract each digit
+		ans = ans + pow(rem, digits);	// take pow of each digit with number of digits and add to sum
+		givenNo /= 10;
+	}
+
+	if (ans == n)
+		return true;
+	else
+		return false;
 }
