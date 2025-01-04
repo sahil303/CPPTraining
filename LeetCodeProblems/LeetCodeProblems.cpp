@@ -15,6 +15,8 @@ void FormRectangle(int a, int b, int c, int d);
 void FindTrailingZerosOfFactorial(int n);
 bool IsAmstrongNumber(int n, int digits);
 int CountDigits(int n);
+void TotalBishopMoves(int A, int B);	// A and B are current row and col of a bishop
+void NimGame(int n);
 
 int main()
 {
@@ -39,6 +41,8 @@ int main()
 			cout << "9. FIND IS IT A RECTANGLE\n";
 			cout << "10. NUMBER OF TRAILING ZEROS\n";
 			cout << "11. AMSTRONG NUMBER\n";
+			cout << "12. TOTAL BISHOP'S MOVES\n";
+			cout << "13. NIM GAME\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -164,6 +168,24 @@ int main()
 				cout << num << " is an Amstrong Number\n";
 			else
 				cout << num << " is not an Amstrong Number\n";
+			break;
+		}
+		case 12:
+		{
+			int a, b;
+
+			cout << "\nEnter the current row and column of board for Bishop : ";
+			cin >> a >> b;
+			TotalBishopMoves(a, b);
+			break;
+		}
+		case 13:
+		{
+			int n;
+
+			cout << "\nEnter the max number assuming you are starting game : ";
+			cin >> n;
+			NimGame(n);
 			break;
 		}
 		default:
@@ -450,4 +472,23 @@ bool IsAmstrongNumber(int n, int digits)
 		return true;
 	else
 		return false;
+}
+
+void TotalBishopMoves(int a, int b)
+{
+	int moves = 0;
+	moves += min(8 - a, 8 - b);	// min moves in sout-east
+	moves += min(a - 1, 8 - b);	// min move in north-east
+	moves += min(8 - a, b - 1);	// min move in south-west
+	moves += min(a - 1, b - 1);	// min move in north-west
+
+	cout << "\nToal bishop moves = " << moves << endl;
+}
+
+void NimGame(int n)
+{
+	if (n % 4 == 0)
+		cout << "\nYou will loose the game\n";
+	else
+		cout << "\nYou will win the game\n";
 }
