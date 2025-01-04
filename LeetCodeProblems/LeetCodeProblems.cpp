@@ -11,6 +11,8 @@ void SqrtOfNum(int num);
 void IsPalindrome(int num);
 void ComplementOfNumber(int num);
 void ConvertToUppercase(char c);
+void FormRectangle(int a, int b, int c, int d);
+void FindTrailingZerosOfFactorial(int n);
 
 int main()
 {
@@ -32,6 +34,8 @@ int main()
 			cout << "6. PALINDROME NUMBER\n";
 			cout << "7. COMPLEMENT OF BASE 10 NUMBER\n";
 			cout << "8. CONVERT LOWERCASE TO UPPERCASE\n";
+			cout << "9. FIND IS IT A RECTANGLE\n";
+			cout << "10. NUMBER OF TRAILING ZEROS\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -122,6 +126,24 @@ int main()
 			cin >> c;
 			cout << endl;
 			ConvertToUppercase(c);
+			break;
+		}
+		case 9:
+		{
+			int a, b, c, d;
+			cout << "\nEnter sides of rectangle : ";
+			cin >> a >> b >> c >> d;
+			cout << endl;
+			FormRectangle(a, b, c, d);
+			break;
+		}
+		case 10:
+		{
+			int n;
+			cout << "\nEnter a number : ";
+			cin >> n;
+			cout << endl;
+			FindTrailingZerosOfFactorial(n);
 			break;
 		}
 		default:
@@ -339,4 +361,40 @@ void ConvertToUppercase(char c)
 
 	char ans = c - 'a' + 'A';	// get the difference from small characters and add Capital A
 	cout << "Converted value = " << ans << endl;
+}
+
+void FormRectangle(int a, int b, int c, int d)
+{
+	if (((a == b) && (c == d)) || ((a == c) && (b == d)) || ((a == d) && (b == c)))
+		cout << "It is a Rectangle\n";
+	else
+		cout << "It is not a Rectangle\n";
+}
+
+void FindTrailingZerosOfFactorial(int n)
+{
+	long long fact = 1;
+	int count = 0;
+
+	if (n == 1)
+	{
+		cout << "Factorial of given number is " << 1 << endl;
+		cout << "\nNumber of trailing zeros are " << count << endl;
+		return;
+	}
+
+	for (int i = 1; i <= n; i++)
+	{
+		fact = fact * i;
+	}
+
+	cout << "Factorial of given number is " << fact << endl;
+
+	while (n >= 5)
+	{
+		count = count + n / 5;
+		n /= 5;
+	}
+
+	cout << "\nNumber of trailing zeros are " << count << endl;
 }
