@@ -10,6 +10,7 @@ void IsPowerOfTwo(int num);
 void SqrtOfNum(int num);
 void IsPalindrome(int num);
 void ComplementOfNumber(int num);
+void ConvertToUppercase(char c);
 
 int main()
 {
@@ -30,6 +31,7 @@ int main()
 			cout << "5. SQUARE ROOT OF A NUMBER\n";
 			cout << "6. PALINDROME NUMBER\n";
 			cout << "7. COMPLEMENT OF BASE 10 NUMBER\n";
+			cout << "8. CONVERT LOWERCASE TO UPPERCASE\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -111,6 +113,15 @@ int main()
 			cin >> num;
 			cout << endl;
 			ComplementOfNumber(num);
+			break;
+		}
+		case 8:
+		{
+			char c;
+			cout << "\nEnter a character between (a-z) : ";
+			cin >> c;
+			cout << endl;
+			ConvertToUppercase(c);
 			break;
 		}
 		default:
@@ -310,4 +321,22 @@ void ComplementOfNumber(int num)
 	}
 
 	cout << ans << " is complement of " << givenNum << endl;
+}
+
+void ConvertToUppercase(char c)
+{
+	if (c >= 'A' && c <= 'Z')
+	{
+		cout << "The answer is : " << c << endl;
+		return;
+	}
+
+	if (c < 'a' || c > 'z')
+	{
+		cout << "Invalid Input\n";
+		return;
+	}
+
+	char ans = c - 'a' + 'A';	// get the difference from small characters and add Capital A
+	cout << "Converted value = " << ans << endl;
 }
