@@ -11,6 +11,12 @@ void SqrtOfNum(int num);
 void IsPalindrome(int num);
 void ComplementOfNumber(int num);
 void ConvertToUppercase(char c);
+void FormRectangle(int a, int b, int c, int d);
+void FindTrailingZerosOfFactorial(int n);
+bool IsAmstrongNumber(int n, int digits);
+int CountDigits(int n);
+void TotalBishopMoves(int A, int B);	// A and B are current row and col of a bishop
+void NimGame(int n);
 
 int main()
 {
@@ -32,6 +38,11 @@ int main()
 			cout << "6. PALINDROME NUMBER\n";
 			cout << "7. COMPLEMENT OF BASE 10 NUMBER\n";
 			cout << "8. CONVERT LOWERCASE TO UPPERCASE\n";
+			cout << "9. FIND IS IT A RECTANGLE\n";
+			cout << "10. NUMBER OF TRAILING ZEROS\n";
+			cout << "11. AMSTRONG NUMBER\n";
+			cout << "12. TOTAL BISHOP'S MOVES\n";
+			cout << "13. NIM GAME\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -122,6 +133,59 @@ int main()
 			cin >> c;
 			cout << endl;
 			ConvertToUppercase(c);
+			break;
+		}
+		case 9:
+		{
+			int a, b, c, d;
+			cout << "\nEnter sides of rectangle : ";
+			cin >> a >> b >> c >> d;
+			cout << endl;
+			FormRectangle(a, b, c, d);
+			break;
+		}
+		case 10:
+		{
+			int n;
+			cout << "\nEnter a number : ";
+			cin >> n;
+			cout << endl;
+			FindTrailingZerosOfFactorial(n);
+			break;
+		}
+		case 11:
+		{
+			int num, digits = 1;
+
+			cout << "\nEnter a number : ";
+			cin >> num;
+			cout << endl;
+			
+			if (num > 9)
+				digits = CountDigits(num);
+
+			if (IsAmstrongNumber(num, digits))
+				cout << num << " is an Amstrong Number\n";
+			else
+				cout << num << " is not an Amstrong Number\n";
+			break;
+		}
+		case 12:
+		{
+			int a, b;
+
+			cout << "\nEnter the current row and column of board for Bishop : ";
+			cin >> a >> b;
+			TotalBishopMoves(a, b);
+			break;
+		}
+		case 13:
+		{
+			int n;
+
+			cout << "\nEnter the max number assuming you are starting game : ";
+			cin >> n;
+			NimGame(n);
 			break;
 		}
 		default:
@@ -339,4 +403,92 @@ void ConvertToUppercase(char c)
 
 	char ans = c - 'a' + 'A';	// get the difference from small characters and add Capital A
 	cout << "Converted value = " << ans << endl;
+}
+
+void FormRectangle(int a, int b, int c, int d)
+{
+	if (((a == b) && (c == d)) || ((a == c) && (b == d)) || ((a == d) && (b == c)))
+		cout << "It is a Rectangle\n";
+	else
+		cout << "It is not a Rectangle\n";
+}
+
+void FindTrailingZerosOfFactorial(int n)
+{
+	long long fact = 1;
+	int count = 0;
+
+	if (n == 1)
+	{
+		cout << "Factorial of given number is " << 1 << endl;
+		cout << "\nNumber of trailing zeros are " << count << endl;
+		return;
+	}
+
+	for (int i = 1; i <= n; i++)
+	{
+		fact = fact * i;
+	}
+
+	cout << "Factorial of given number is " << fact << endl;
+
+	while (n >= 5)
+	{
+		count = count + n / 5;
+		n /= 5;
+	}
+
+	cout << "\nNumber of trailing zeros are " << count << endl;
+}
+
+int CountDigits(int n)
+{
+	if (n < 10)
+		return 1;
+
+	int count = 0;
+
+	while (n)
+	{
+		count++;
+		n /= 10;
+	}
+
+	return count;
+}
+
+bool IsAmstrongNumber(int n, int digits)
+{
+	int ans = 0, rem, givenNo = n;
+
+	while (givenNo)
+	{
+		rem = givenNo % 10; // extract each digit
+		ans = ans + pow(rem, digits);	// take pow of each digit with number of digits and add to sum
+		givenNo /= 10;
+	}
+
+	if (ans == n)
+		return true;
+	else
+		return false;
+}
+
+void TotalBishopMoves(int a, int b)
+{
+	int moves = 0;
+	moves += min(8 - a, 8 - b);	// min moves in sout-east
+	moves += min(a - 1, 8 - b);	// min move in north-east
+	moves += min(8 - a, b - 1);	// min move in south-west
+	moves += min(a - 1, b - 1);	// min move in north-west
+
+	cout << "\nToal bishop moves = " << moves << endl;
+}
+
+void NimGame(int n)
+{
+	if (n % 4 == 0)
+		cout << "\nYou will loose the game\n";
+	else
+		cout << "\nYou will win the game\n";
 }
