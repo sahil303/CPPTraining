@@ -6,11 +6,26 @@ void PrintArray(int arr[], int size);
 int FindMax(int arr[], int size);
 int FindMin(int arr[], int size);
 bool SearchElement(int arr[], int size, int key);
+void ReverseArray(int arr[], int size);
 
 int main()
 {
 	char c = 'y';
 	int option = 0;
+
+	int myArray[5];
+
+	cout << "\nEnter 5 element of array : \n";
+
+	for (int i = 0; i < 5; i++)
+	{
+		cin >> myArray[i];
+	}
+
+	int myArraySize = sizeof(myArray) / sizeof(myArray[0]);
+
+	PrintArray(myArray, myArraySize);
+
 	do
 	{
 		bool bValidInput = false;
@@ -34,8 +49,7 @@ int main()
 			if (cin.fail()) {
 				cout << "Invalid input! Expected an integer."
 					<< endl;
-				// Clear the failbit and ignore the remaining
-				// input
+				// Clear the failbit and ignore the remaining input
 				cin.clear();
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			}
@@ -117,6 +131,15 @@ int main()
 
 				break;
 			}
+			case 4:
+			{
+				cout << "\Before Reverse\n";
+				PrintArray(myArray, myArraySize);
+				ReverseArray(myArray, myArraySize);
+				cout << "\nAfter Reverse\n";
+				PrintArray(myArray, myArraySize);
+				break;
+			}
 			default:
 			{
 				cout << "Invalid option!!!\n";
@@ -183,4 +206,21 @@ bool SearchElement(int arr[], int size, int key)
 	}
 
 	return false;
+}
+
+void ReverseArray(int arr[], int size)
+{
+	// take two variables i & j
+	// i will start from first element and j will start from last element
+	// swap elements from i and j until i < j
+	// applies for both even and odd size array
+
+	int i = 0, j = size - 1;
+
+	while (i < j)
+	{
+		swap(arr[i], arr[j]);
+		i++;
+		j--;
+	}
 }
