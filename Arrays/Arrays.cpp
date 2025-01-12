@@ -5,6 +5,7 @@ void PrintArray(int arr[], int size);
 
 int FindMax(int arr[], int size);
 int FindMin(int arr[], int size);
+bool SearchElement(int arr[], int size, int key);
 
 int main()
 {
@@ -20,6 +21,12 @@ int main()
 			cout << "Choose Options From Below:\n\n";
 			cout << "1. FIND MAXIMUM ELEMENT FROM ARRAY\n";
 			cout << "2. FIND MINIMUM ELEMENT FROM ARRAY\n";
+			cout << "3. SEARCH ELEMENT IN AN ARRAY\n";
+			cout << "4. REVERSE AN ARRAY\n";
+			cout << "5. FIND SECOND MAX ELEMENT\n";
+			cout << "6. MISSING NUMBER IN AN ARRAY\n";
+			cout << "7. FIBONACCI SERIES\n";
+			cout << "8. ROTATE AN ARRAY BY 1\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -83,6 +90,33 @@ int main()
 
 				break;
 			}
+			case 3:
+			{
+				int arr[5];
+
+				cout << "\nEnter 5 element of array : \n";
+
+				for (int i = 0; i < 5; i++)
+				{
+					cin >> arr[i];
+				}
+				int arrSize = sizeof(arr) / sizeof(arr[0]);
+				PrintArray(arr, arrSize);
+
+				int key;
+
+				cout << "\nEnter an element to search: " << endl;
+				cin >> key;
+
+				if (SearchElement(arr, arrSize, key))
+				{
+					cout << "\nElement found\n";
+				}
+				else
+					cout << "\nElement not found\n";
+
+				break;
+			}
 			default:
 			{
 				cout << "Invalid option!!!\n";
@@ -138,4 +172,15 @@ int FindMin(int arr[], int size)
 	}
 
 	return minElement;
+}
+
+bool SearchElement(int arr[], int size, int key)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] == key)
+			return true;
+	}
+
+	return false;
 }
