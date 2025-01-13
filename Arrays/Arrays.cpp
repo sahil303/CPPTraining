@@ -7,6 +7,7 @@ int FindMax(int arr[], int size);
 int FindMin(int arr[], int size);
 bool SearchElement(int arr[], int size, int key);
 void ReverseArray(int arr[], int size);
+void FindSecondMax(int arr[], int size);
 
 int main()
 {
@@ -42,6 +43,7 @@ int main()
 			cout << "6. MISSING NUMBER IN AN ARRAY\n";
 			cout << "7. FIBONACCI SERIES\n";
 			cout << "8. ROTATE AN ARRAY BY 1\n";
+			cout << "9. UPDATE ARRAY ELEMENT\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -140,6 +142,45 @@ int main()
 				PrintArray(myArray, myArraySize);
 				break;
 			}
+			case 5:
+			{
+				FindSecondMax(myArray, myArraySize);
+				break;
+			}
+			case 9:
+			{
+				int n, n1;
+				PrintArray(myArray, myArraySize);
+
+				cout << "\nEnter element to update: ";
+				cin >> n;
+
+				if (SearchElement(myArray, myArraySize, n))
+				{
+					cout << "\nElement found\n";
+
+					int index;
+
+					for (int i = 0; i < myArraySize; i++)
+					{
+						if (myArray[i] == n)
+						{
+							index = i;
+							break;
+						}
+					}
+
+					cout << "\nEnter updated value:";
+					cin >> n1;
+					myArray[index] = n1;
+
+					PrintArray(myArray, myArraySize);
+				}
+				else
+					cout << "\nElement not found\n";
+
+				break;
+			}
 			default:
 			{
 				cout << "Invalid option!!!\n";
@@ -223,4 +264,26 @@ void ReverseArray(int arr[], int size)
 		i++;
 		j--;
 	}
+}
+
+void FindSecondMax(int arr[], int size)
+{
+	int secondMax = INT_MIN, maxElement = INT_MIN;
+
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] > maxElement)
+			maxElement = arr[i];
+	}
+
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] != maxElement)
+			secondMax = max(secondMax, arr[i]);
+	}
+
+	if (secondMax == INT_MIN)
+		maxElement = secondMax;
+
+	cout << "\nSecond Largest Element is " << secondMax << endl;
 }
