@@ -8,6 +8,8 @@ int FindMin(int arr[], int size);
 bool SearchElement(int arr[], int size, int key);
 void ReverseArray(int arr[], int size);
 void FindSecondMax(int arr[], int size);
+int NthFibonacciNumber(int n);
+int MissingNumber(int arr[], int n);
 
 int main()
 {
@@ -145,6 +147,31 @@ int main()
 			case 5:
 			{
 				FindSecondMax(myArray, myArraySize);
+				break;
+			}
+			case 6:
+			{
+				cout << "\nEnter N :";
+				int n;
+				cin >> n;
+				int arr[1000];
+
+				cout << "\nEnter 5 element of array : \n";
+
+				for (int i = 0; i < n - 1; i++)
+				{
+					cin >> arr[i];
+				}
+
+				cout << "\nMissing Number is :" << MissingNumber(arr, n);
+				break;
+			}
+			case 7:
+			{
+				int n;
+				cout << "\nEnter number to find nth Fibo number ";
+				cin >> n;
+				cout <<"\nNth Fibo number is " << NthFibonacciNumber(n);
 				break;
 			}
 			case 9:
@@ -286,4 +313,33 @@ void FindSecondMax(int arr[], int size)
 		maxElement = secondMax;
 
 	cout << "\nSecond Largest Element is " << secondMax << endl;
+}
+
+int NthFibonacciNumber(int n)
+{
+	int arr[1000] = { 0 };
+
+	arr[0] = 0;
+	arr[1] = 1;
+
+	for (int i = 2; i < n; i++)
+	{
+		arr[i] = arr[i - 1] + arr[i - 2];
+	}
+
+
+	return arr[n - 1];
+}
+
+int MissingNumber(int arr[], int n)
+{
+	int sum = n * (n + 1) / 2;	// without missing number
+	int arrSum = 0;
+	for (int i = 0; i < n - 1; i++)
+	{
+		arrSum += arr[i];
+	}
+
+	int missingNo = sum - arrSum;
+	return missingNo;
 }
