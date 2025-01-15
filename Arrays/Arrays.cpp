@@ -7,6 +7,9 @@ int FindMax(int arr[], int size);
 int FindMin(int arr[], int size);
 bool SearchElement(int arr[], int size, int key);
 void ReverseArray(int arr[], int size);
+void FindSecondMax(int arr[], int size);
+int NthFibonacciNumber(int n);
+int MissingNumber(int arr[], int n);
 
 int main()
 {
@@ -42,6 +45,7 @@ int main()
 			cout << "6. MISSING NUMBER IN AN ARRAY\n";
 			cout << "7. FIBONACCI SERIES\n";
 			cout << "8. ROTATE AN ARRAY BY 1\n";
+			cout << "9. UPDATE ARRAY ELEMENT\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -140,6 +144,70 @@ int main()
 				PrintArray(myArray, myArraySize);
 				break;
 			}
+			case 5:
+			{
+				FindSecondMax(myArray, myArraySize);
+				break;
+			}
+			case 6:
+			{
+				cout << "\nEnter N :";
+				int n;
+				cin >> n;
+				int arr[1000];
+
+				cout << "\nEnter 5 element of array : \n";
+
+				for (int i = 0; i < n - 1; i++)
+				{
+					cin >> arr[i];
+				}
+
+				cout << "\nMissing Number is :" << MissingNumber(arr, n);
+				break;
+			}
+			case 7:
+			{
+				int n;
+				cout << "\nEnter number to find nth Fibo number ";
+				cin >> n;
+				cout <<"\nNth Fibo number is " << NthFibonacciNumber(n);
+				break;
+			}
+			case 9:
+			{
+				int n, n1;
+				PrintArray(myArray, myArraySize);
+
+				cout << "\nEnter element to update: ";
+				cin >> n;
+
+				if (SearchElement(myArray, myArraySize, n))
+				{
+					cout << "\nElement found\n";
+
+					int index;
+
+					for (int i = 0; i < myArraySize; i++)
+					{
+						if (myArray[i] == n)
+						{
+							index = i;
+							break;
+						}
+					}
+
+					cout << "\nEnter updated value:";
+					cin >> n1;
+					myArray[index] = n1;
+
+					PrintArray(myArray, myArraySize);
+				}
+				else
+					cout << "\nElement not found\n";
+
+				break;
+			}
 			default:
 			{
 				cout << "Invalid option!!!\n";
@@ -223,4 +291,55 @@ void ReverseArray(int arr[], int size)
 		i++;
 		j--;
 	}
+}
+
+void FindSecondMax(int arr[], int size)
+{
+	int secondMax = INT_MIN, maxElement = INT_MIN;
+
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] > maxElement)
+			maxElement = arr[i];
+	}
+
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] != maxElement)
+			secondMax = max(secondMax, arr[i]);
+	}
+
+	if (secondMax == INT_MIN)
+		maxElement = secondMax;
+
+	cout << "\nSecond Largest Element is " << secondMax << endl;
+}
+
+int NthFibonacciNumber(int n)
+{
+	int arr[1000] = { 0 };
+
+	arr[0] = 0;
+	arr[1] = 1;
+
+	for (int i = 2; i < n; i++)
+	{
+		arr[i] = arr[i - 1] + arr[i - 2];
+	}
+
+
+	return arr[n - 1];
+}
+
+int MissingNumber(int arr[], int n)
+{
+	int sum = n * (n + 1) / 2;	// without missing number
+	int arrSum = 0;
+	for (int i = 0; i < n - 1; i++)
+	{
+		arrSum += arr[i];
+	}
+
+	int missingNo = sum - arrSum;
+	return missingNo;
 }
