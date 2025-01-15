@@ -1,0 +1,102 @@
+
+#include <iostream>
+#include "Sorting.h"
+#include <chrono>
+using namespace std::chrono;
+using namespace std;
+
+
+void PrintSortedArray(int arr[], int size);
+
+void RunSortingPrograms(int arr[], int size)
+{
+	char c = 'y';
+	int option = 0, n, num;
+	do
+	{
+		bool bValidInput = false;
+
+		while (!bValidInput)
+		{
+			cout << "\n\n~~~~~~~~~~~~~~ SORTING PROGRAMS ~~~~~~~~~~~~~~\n\n";
+			cout << "Choose Options From Below:\n\n";
+			cout << "1. SELECTION SORT\n";
+			cout << "\n--------------\n";
+			cout << "Choice : ";
+			cin >> option;
+
+			if (cin.fail()) {
+				cout << "Invalid input! Expected an integer."
+					<< endl;
+				// Clear the failbit and ignore the remaining
+				// input
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
+			else {
+				bValidInput = true;
+			}
+		}
+
+		switch (option)
+		{
+		case 1:
+		{
+			// Selection sort
+			auto start = high_resolution_clock::now();
+
+			SelectionSort(arr, size);
+
+			auto stop = high_resolution_clock::now();
+
+			auto duration = duration_cast<milliseconds>(stop - start);
+
+			// To get the value of duration use the count()
+			// member function on the duration object
+			cout << "\nTime taken by function: "
+				<< duration.count() << " milliseconds" << endl;
+			break;
+		}
+		default:
+		{
+			cout << "Invalid option!!!\n";
+			break;
+		}
+		}
+
+		cout << "\nDo you want to continue (Y/N)?\n";
+		cin >> c;
+
+	} while (c == 'y' || c == 'Y');
+}
+
+void SelectionSort(int arr[], int size)
+{
+	for (int i = 0; i < size - 1; i++)
+	{
+		int index = i;	// index of min element from i+1 to n
+		for (int j = i + 1; j < size; j++)
+		{
+			if (arr[j] < arr[index])
+				index = j;
+		}
+
+		swap(arr[i], arr[index]);
+	}
+
+	PrintSortedArray(arr, size);
+}
+
+void PrintSortedArray(int arr[], int size)
+{
+	int arrSize = size;
+
+	cout << "\nAfter sorting [";
+
+	for (int i = 0; i < arrSize; i++)
+	{
+		cout << arr[i] << " ";
+	}
+
+	cout << "]" << endl;
+}
