@@ -6,6 +6,11 @@ void PrintArray(int arr[], int size);
 
 int FindMax(int arr[], int size);
 int FindMin(int arr[], int size);
+bool SearchElement(int arr[], int size, int key);
+void ReverseArray(int arr[], int size);
+void FindSecondMax(int arr[], int size);
+int NthFibonacciNumber(int n);
+int MissingNumber(int arr[], int n);
 
 int main()
 {
@@ -21,6 +26,7 @@ int main()
 	cout << "\nEnter "  << myArraySize << " element of array : \n";
 
 	for (int i = 0; i < myArraySize; i++)
+
 	{
 		cin >> myArray[i];
 	}
@@ -53,8 +59,7 @@ int main()
 			if (cin.fail()) {
 				cout << "Invalid input! Expected an integer."
 					<< endl;
-				// Clear the failbit and ignore the remaining
-				// input
+				// Clear the failbit and ignore the remaining input
 				cin.clear();
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			}
@@ -264,4 +269,83 @@ int FindMin(int arr[], int size)
 	}
 
 	return minElement;
+}
+
+bool SearchElement(int arr[], int size, int key)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] == key)
+			return true;
+	}
+
+	return false;
+}
+
+void ReverseArray(int arr[], int size)
+{
+	// take two variables i & j
+	// i will start from first element and j will start from last element
+	// swap elements from i and j until i < j
+	// applies for both even and odd size array
+
+	int i = 0, j = size - 1;
+
+	while (i < j)
+	{
+		swap(arr[i], arr[j]);
+		i++;
+		j--;
+	}
+}
+
+void FindSecondMax(int arr[], int size)
+{
+	int secondMax = INT_MIN, maxElement = INT_MIN;
+
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] > maxElement)
+			maxElement = arr[i];
+	}
+
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] != maxElement)
+			secondMax = max(secondMax, arr[i]);
+	}
+
+	if (secondMax == INT_MIN)
+		maxElement = secondMax;
+
+	cout << "\nSecond Largest Element is " << secondMax << endl;
+}
+
+int NthFibonacciNumber(int n)
+{
+	int arr[1000] = { 0 };
+
+	arr[0] = 0;
+	arr[1] = 1;
+
+	for (int i = 2; i < n; i++)
+	{
+		arr[i] = arr[i - 1] + arr[i - 2];
+	}
+
+
+	return arr[n - 1];
+}
+
+int MissingNumber(int arr[], int n)
+{
+	int sum = n * (n + 1) / 2;	// without missing number
+	int arrSum = 0;
+	for (int i = 0; i < n - 1; i++)
+	{
+		arrSum += arr[i];
+	}
+
+	int missingNo = sum - arrSum;
+	return missingNo;
 }
