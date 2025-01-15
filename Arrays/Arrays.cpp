@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Sorting.h"
 using namespace std;
 
 void PrintArray(int arr[], int size);
@@ -16,16 +17,21 @@ int main()
 	char c = 'y';
 	int option = 0;
 
-	int myArray[5];
+	int myArray[1000];
+	int myArraySize;
 
-	cout << "\nEnter 5 element of array : \n";
+	cout << "\nEnter size of an array : \n";
+	cin >> myArraySize;
 
-	for (int i = 0; i < 5; i++)
+	cout << "\nEnter "  << myArraySize << " element of array : \n";
+
+	for (int i = 0; i < myArraySize; i++)
+
 	{
 		cin >> myArray[i];
 	}
 
-	int myArraySize = sizeof(myArray) / sizeof(myArray[0]);
+	//myArraySize = sizeof(myArray) / sizeof(myArray[0]);
 
 	PrintArray(myArray, myArraySize);
 
