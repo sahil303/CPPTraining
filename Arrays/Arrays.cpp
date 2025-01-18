@@ -52,6 +52,7 @@ int main()
 			cout << "7. FIBONACCI SERIES\n";
 			cout << "8. ROTATE AN ARRAY BY 1\n";
 			cout << "9. UPDATE ARRAY ELEMENT\n";
+			cout << "10. SORT ARRAY ELEMENT\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -213,6 +214,10 @@ int main()
 					cout << "\nElement not found\n";
 
 				break;
+			}
+			case 10:
+			{
+				RunSortingPrograms(myArray, myArraySize);
 			}
 			default:
 			{
