@@ -5,9 +5,6 @@
 using namespace std::chrono;
 using namespace std;
 
-
-void PrintSortedArray(int arr[], int size);
-
 void RunSortingPrograms(int arr[], int size)
 {
 	char c = 'y';
@@ -21,6 +18,7 @@ void RunSortingPrograms(int arr[], int size)
 			cout << "\n\n~~~~~~~~~~~~~~ SORTING PROGRAMS ~~~~~~~~~~~~~~\n\n";
 			cout << "Choose Options From Below:\n\n";
 			cout << "1. SELECTION SORT\n";
+			cout << "1. BUBBLE SORT\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -38,23 +36,19 @@ void RunSortingPrograms(int arr[], int size)
 			}
 		}
 
+		auto start = high_resolution_clock::now();
+
 		switch (option)
 		{
 		case 1:
 		{
 			// Selection sort
-			auto start = high_resolution_clock::now();
-
 			SelectionSort(arr, size);
-
-			auto stop = high_resolution_clock::now();
-
-			auto duration = duration_cast<milliseconds>(stop - start);
-
-			// To get the value of duration use the count()
-			// member function on the duration object
-			cout << "\nTime taken by function: "
-				<< duration.count() << " milliseconds" << endl;
+			break;
+		}
+		case 2:
+		{
+			BubbleSort(arr, size);
 			break;
 		}
 		default:
@@ -63,6 +57,16 @@ void RunSortingPrograms(int arr[], int size)
 			break;
 		}
 		}
+
+
+		auto stop = high_resolution_clock::now();
+
+		auto duration = duration_cast<milliseconds>(stop - start);
+
+		// To get the value of duration use the count()
+		// member function on the duration object
+		cout << "\nTime taken by function: "
+			<< duration.count() << " milliseconds" << endl;
 
 		cout << "\nDo you want to continue (Y/N)?\n";
 		cin >> c;
@@ -82,6 +86,30 @@ void SelectionSort(int arr[], int size)
 		}
 
 		swap(arr[i], arr[index]);
+	}
+
+	PrintSortedArray(arr, size);
+}
+
+void BubbleSort(int arr[], int size)
+{
+	int i = 0, j = 0;
+	bool anyElementSwapped = false;
+
+	// No of rounds
+	for (i = size - 2; i >= 0; i--)
+	{
+		for (j = 0; j <= i; j++)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				swap(arr[j], arr[j + 1]);
+				anyElementSwapped = true;
+			}
+		}
+
+		if (!anyElementSwapped)	// if array is already sorted
+			break;
 	}
 
 	PrintSortedArray(arr, size);
