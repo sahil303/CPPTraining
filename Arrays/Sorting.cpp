@@ -18,7 +18,8 @@ void RunSortingPrograms(int arr[], int size)
 			cout << "\n\n~~~~~~~~~~~~~~ SORTING PROGRAMS ~~~~~~~~~~~~~~\n\n";
 			cout << "Choose Options From Below:\n\n";
 			cout << "1. SELECTION SORT\n";
-			cout << "1. BUBBLE SORT\n";
+			cout << "2. BUBBLE SORT\n";
+			cout << "3. INSERTION SORT\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -49,6 +50,11 @@ void RunSortingPrograms(int arr[], int size)
 		case 2:
 		{
 			BubbleSort(arr, size);
+			break;
+		}
+		case 3:
+		{
+			InsertionSort(arr, size);
 			break;
 		}
 		default:
@@ -110,6 +116,26 @@ void BubbleSort(int arr[], int size)
 
 		if (!anyElementSwapped)	// if array is already sorted
 			break;
+	}
+
+	PrintSortedArray(arr, size);
+}
+
+void InsertionSort(int arr[], int size)
+{
+	int n = size;
+
+	// No of rounds
+	for (int i = 0; i < n; i++)
+	{
+		// insert the element to correct position
+		for (int j = i; j > 0; j--)
+		{
+			if (arr[j] < arr[j - 1])
+				swap(arr[j], arr[j - 1]);
+			else
+				break;
+		}
 	}
 
 	PrintSortedArray(arr, size);
