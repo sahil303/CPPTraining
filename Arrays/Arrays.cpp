@@ -218,6 +218,7 @@ int main()
 			case 10:
 			{
 				RunSortingPrograms(myArray, myArraySize);
+				break;
 			}
 			default:
 			{
