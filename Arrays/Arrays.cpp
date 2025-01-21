@@ -11,6 +11,7 @@ void ReverseArray(int arr[], int size);
 void FindSecondMax(int arr[], int size);
 int NthFibonacciNumber(int n);
 int MissingNumber(int arr[], int n);
+int BinarySearch(int arr[], int n, int key);
 
 int main()
 {
@@ -53,6 +54,7 @@ int main()
 			cout << "8. ROTATE AN ARRAY BY 1\n";
 			cout << "9. UPDATE ARRAY ELEMENT\n";
 			cout << "10. SORT ARRAY ELEMENT\n";
+			cout << "11. BINARY SEARCH\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
 			cin >> option;
@@ -220,6 +222,15 @@ int main()
 				RunSortingPrograms(myArray, myArraySize);
 				break;
 			}
+			case 11:
+			{
+				int key;
+
+				cout << "\nEnter element to search : ";
+				cin >> key;
+				cout << endl << BinarySearch(myArray, myArraySize, key) << endl;
+				break;
+			}
 			default:
 			{
 				cout << "Invalid option!!!\n";
@@ -354,4 +365,24 @@ int MissingNumber(int arr[], int n)
 
 	int missingNo = sum - arrSum;
 	return missingNo;
+}
+
+int BinarySearch(int arr[], int n, int key)
+{
+	int start = 0, end = n - 1, mid;
+
+	while (start <= end)
+	{
+		mid = start + (end - start) / 2;		// mid = start + end
+		if (arr[mid] == key)
+			return mid;
+		else if (arr[mid] < key)
+		{
+			start = mid + 1;
+		}
+		else
+			end = mid - 1;
+	}
+
+	return -1;
 }
