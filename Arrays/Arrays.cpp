@@ -373,14 +373,15 @@ int BinarySearch(int arr[], int n, int key)
 
 	while (start <= end)
 	{
-		mid = start + (end - start) / 2;		// mid = start + end
+		mid = start + (end - start) / 2;		// mid = start + end / 2
+
 		if (arr[mid] == key)
 			return mid;
-		else if (arr[mid] < key)
+		else if (arr[mid] < key)	// key is greater than mid
 		{
 			start = mid + 1;
 		}
-		else
+		else				// key is less than mid
 			end = mid - 1;
 	}
 
