@@ -179,7 +179,7 @@ void RunForLoopProgram()
 			cout << "\nEnter a number :";
 			cin >> n;
 
-			cout << "\nAnswer = " << PrintSquareOfNaturalNos(n);
+			cout << "\nAnswer = " << PrintSumOfSqOfNaturalNos(n);
 			cout << endl;
 			break;
 		}		
@@ -264,7 +264,7 @@ void PrintOddNumbersFrom1ToN(int n)
 	cout << endl;
 }
 
-int PrintSquareOfNaturalNos(int n)
+int PrintSumOfSqOfNaturalNos(int n)
 {
 	int sqsum = 0;
 	for (int i = 1; i <= n; i++)
