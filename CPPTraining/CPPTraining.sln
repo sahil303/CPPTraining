@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Arrays", "..\Arrays\Arrays.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DesignPatterns", "..\DesignPatterns\DesignPatterns.vcxproj", "{2CE9E747-C89D-4B5D-B319-9704BFAA03ED}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StandardTemplateLibrary", "..\StandardTemplateLibrary\StandardTemplateLibrary.vcxproj", "{848D80C6-EA4C-40EA-BCC3-4FFC85A227B0}"
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Strings", "..\Strings\Strings.vcxproj", "{20A71A6C-4A5E-4477-B277-3072EC3D74E0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ObjectOrientedProgramming", "..\ObjectOrientedProgramming\ObjectOrientedProgramming.vcxproj", "{B1738320-8653-47FB-9D34-AB84ADC9B6D5}"
@@ -104,8 +106,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F0432135-3DF2-4684-9962-4B6D15046A16}
 	EndGlobalSection
 EndGlobal
