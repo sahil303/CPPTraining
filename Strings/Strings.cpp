@@ -5,10 +5,14 @@ using namespace std;
 
 void SimpleCharacterArray();
 void FixedSizeCharacterArray();
-void StringPrograms();
+void StringOperations();
 string ReverseString(string str);
 int StringLength(string str);
 bool IsStringPalindrome(string str);
+bool isRotatedByNPlaces(string str1, string str2, int n);
+string defangIPaddr(string address);
+void RotateClockwise(string& str);
+void RotateAntiClockwise(string& str);
 
 int main()
 {
@@ -29,6 +33,8 @@ int main()
 			cout << "4. Find Length of String \n";
 			cout << "5. Reverse a String \n";
 			cout << "6. Check if String is Palindrome \n";
+			cout << "7. Defang an IP Address \n";
+			cout << "8. Check if String is Rotated by N places \n";
 			cout << "9. Exit\n";
 			cout << "\n--------------\n";
 			cout << "Choice : ";
@@ -61,7 +67,7 @@ int main()
 		}
 		case 3:
 		{
-			StringPrograms();
+			StringOperations();
 			break;
 		}
 		case 4:
@@ -93,6 +99,30 @@ int main()
 				cout << "String is palindrome" << endl;
 			else
 				cout << "String is not palindrome" << endl;
+			break;
+		}
+		case 7:
+		{
+			string str;
+			cout << "Enter an IP Address: ";
+			cin >> str;
+			cout << "Defanged IP Address is " << defangIPaddr(str) << endl;
+			break;
+		}
+		case 8:
+		{
+			string str1, str2;
+			int n;
+			cout << "Enter original string: ";
+			cin >> str1;
+			cout << "Enter rotated string: ";
+			cin >> str2;
+			cout << "Enter number of places rotated: ";
+			cin >> n;
+			if (isRotatedByNPlaces(str1, str2, n))
+				cout << "String is rotated by " << n << " places" << endl;
+			else
+				cout << "String is not rotated by " << n << " places" << endl;
 			break;
 		}
 		case 9:
@@ -144,7 +174,7 @@ void FixedSizeCharacterArray()
 	cout << endl;
 }
 
-void StringPrograms()
+void StringOperations()
 {
 	// Strings
 	string s = "Sahil";
@@ -165,12 +195,14 @@ void StringPrograms()
 	cout << endl << s3;
 
 	// append character
-	s3.push_back('p');
-	s3.append("New string");
-	s3 = s3 + 'p';
+	s3.push_back('p');	// push back works only for single character
+	s3.append("New string");	// append works for string
+	s3 = s3 + 'p';	// concat single character
+	//s3 = s3 + 'pa'; // cannot concat multiple characters with single quotes
+	s3 = s3 + "p"; // concat single character
 	s3 = s3 + "New String";
 
-	s3.pop_back();
+	s3.pop_back(); // removes last character
 
 	cout << s3 << endl;
 }
@@ -221,4 +253,75 @@ bool IsStringPalindrome(string str)
 	}
 
 	return true;
+}
+
+// LeetCode Problem 1108. Defanging an IP Address
+// Example 1: 
+// Input: address = "1.1.1.1"
+// Output: "1[.]1[.]1[.]1"
+string defangIPaddr(string address) {
+	string ans;
+	int index = 0;
+	while (index < address.size())
+	{
+		if (address[index] == '.')
+		{
+			ans += "[.]";
+		}
+		else
+		{
+			ans += address[index];
+		}
+		index++;
+	}
+	return ans;
+}
+
+bool isRotatedByNPlaces(string str1, string str2, int n) {
+	// Check if lengths are equal
+	if (str1.size() != str2.size()) return false;
+
+	string clockRotatedStr = str1;
+	for (int i = 0; i < n; i++)
+	{
+		RotateClockwise(clockRotatedStr);
+	}
+
+	if (clockRotatedStr == str2) return true;
+
+	string antiClockRotatedStr = str1;
+	for (int i = 0; i < n; i++)
+	{
+		RotateAntiClockwise(antiClockRotatedStr);
+	}
+
+	if (antiClockRotatedStr == str2) return true;
+
+	return false;
+}
+
+void RotateClockwise(string& str)
+{
+	char lastChar = str[str.size() - 1];
+	int index = str.size() - 2;
+	while (index >= 0)
+	{
+		str[index + 1] = str[index];
+		index--;
+	}
+	str[0] = lastChar;
+}
+
+void RotateAntiClockwise(string& str)
+{
+	char firstChar = str[0];
+	int index = 1;
+
+	while (index > str.size())
+	{
+		str[index - 1] = str[index];
+		index++;
+	}
+
+	str[str.size() - 1] = firstChar;
 }
