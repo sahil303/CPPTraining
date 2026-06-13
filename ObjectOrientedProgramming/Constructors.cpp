@@ -50,14 +50,14 @@ public:
 	}
 };
 
-int main() {
-	Customer customer1, customer2; // Default constructor is called
-	customer1.display();
-	Customer customer3("Alice", 12345, 1000); // Parameterized constructor is called
-	customer3.display();
-	Customer customer4("Bob", 67890); // Parameterized constructor with two parameters is called
-	customer4.display();
-	Customer customer5(customer3); // Copy constructor is called
-	customer5.display();
-	return 0;
-}
+//int main() {
+//	Customer customer1, customer2; // Default constructor is called
+//	customer1.display();
+//	Customer customer3("Alice", 12345, 1000); // Parameterized constructor is called
+//	customer3.display();
+//	Customer customer4("Bob", 67890); // Parameterized constructor with two parameters is called
+//	customer4.display();
+//	Customer customer5(customer3); // Copy constructor is called
+//	customer5.display();
+//	return 0;
+//}
